@@ -1,0 +1,3 @@
+# bash scripts/run_multi_node.sh 8 /data/data/users/t-yifeihe/cua/LLaMA-Factory/examples/train_full/qwen_openwebvoyager_full_v2_gpt4o_cua_4pass_correct_step_correct_traj_sliding_window_1_4epoch.yaml
+bash scripts/run_multi_node.sh 8 /data/data/users/t-yifeihe/cua/LLaMA-Factory/examples/train_full/qwen32b_openwebvoyager_full_v2_gpt4o_cua_correct_step_correct_traj_sliding_window_1_4epoch.yaml
+bash scripts/run_multi_node.sh 8 /data/data/users/t-yifeihe/cua/LLaMA-Factory/examples/train_full/qwen32b_openwebvoyager_full_v2_gpt4o_4pass_cua_correct_step_correct_traj_sliding_window_1_4epoch.yaml

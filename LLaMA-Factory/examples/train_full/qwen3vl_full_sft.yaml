@@ -1,0 +1,49 @@
+### model
+model_name_or_path: Qwen/Qwen3-VL-8B-Instruct
+image_max_pixels: 1048576
+video_max_pixels: 16384
+trust_remote_code: true
+flash_attn: fa2
+
+### method
+stage: sft
+do_train: true
+finetuning_type: full
+freeze_vision_tower: true
+freeze_multi_modal_projector: true
+freeze_language_model: false
+deepspeed: /home/yifeihe/LlamaFactory/examples/deepspeed/ds_z3_offload_optimizer_config.json
+
+
+### dataset
+dataset: rejection_sampling_round_1
+template: qwen3_vl_nothink
+cutoff_len: 8192
+overwrite_cache: true
+preprocessing_num_workers: 16
+dataloader_num_workers: 0
+mask_history: true
+dataset_dir: /home/yifeihe/LlamaFactory/data
+
+### output
+output_dir: /data/common/yifei/cua/ckpts/qwen3-vl-8b/rejection_sampling_round_1
+logging_steps: 10
+save_steps: 100
+save_total_limit: 1
+plot_loss: true
+overwrite_output_dir: true
+save_only_model: true
+# report_to: none  # choices: [none, wandb, tensorboard, swanlab, mlflow]
+report_to: wandb  # choices: [none, wandb, tensorboard, swanlab, mlflow]
+run_name: rejection_sampling_round_1
+
+### train
+per_device_train_batch_size: 2
+gradient_accumulation_steps: 2
+learning_rate: 1.0e-6
+num_train_epochs: 1.0
+lr_scheduler_type: constant
+# warmup_ratio: 0.03
+bf16: true
+ddp_timeout: 180000000
+resume_from_checkpoint: null
